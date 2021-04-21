@@ -21,7 +21,7 @@ public class ScoreDisplay extends PApplet {
 	}
 
 	public void setup() {
-
+		loadScore();
 	}
 
 	public void draw() {
@@ -30,5 +30,15 @@ public class ScoreDisplay extends PApplet {
 	}
 
 	void drawNotes() {
+	}
+
+	public void loadScore() {
+		// iterate through each characters of score string
+		for (int i = 0; i < score.length(); i++) {
+			// score.charAt(i) = current character in string
+			Note note = new Note(score.charAt(i));
+			notes.add(note);
+		}
+
 	}
 }

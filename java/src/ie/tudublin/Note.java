@@ -10,7 +10,7 @@ public class Note {
     }
 
     @Override
-    public String toString() {
+    public String toString(Note tr) {
 
     }
 
