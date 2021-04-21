@@ -24,17 +24,69 @@ public class ScoreDisplay extends PApplet {
 		// white background
 		background(255);
 		// draw 5 lines
-		int staveHeight = height - 175;
-		int staveWidth = width - 20;
 		for (int i = 0; i < 5; i++) {
+			// height of stave
+			int staveHeight = height - 175;
+			int staveWidth = width - 20;
 			// draw
 			strokeWeight(3);
 			line(20, staveHeight - i * 20, staveWidth, staveHeight - i * 20);
 		}
+		drawNotes();
 
 	}
 
 	void drawNotes() {
+		// height of stave
+		int staveHeight = height - 175;
+		int i = 1;
+		for (Note n : notes) {
+			char noteTemp = n.getNote();
+			int noteVal;
+			switch (noteTemp) {
+			case 'D':
+				noteVal = 1;
+				break;
+
+			case 'E':
+				noteVal = 2;
+				break;
+
+			case 'F':
+				noteVal = 3;
+				break;
+
+			case 'G':
+				noteVal = 4;
+				break;
+
+			case 'A':
+				noteVal = 5;
+				break;
+
+			case 'B':
+				noteVal = 6;
+				break;
+
+			case 'c':
+				noteVal = 7;
+				break;
+
+			case 'd':
+				noteVal = 8;
+				break;
+
+			default:
+				noteVal = 0;
+				break;
+
+			}
+
+			int noteLocation = (staveHeight + 20) - 10 * noteVal;
+			strokeWeight(5);
+			line(40 * i, noteLocation, 40 * i, noteLocation - 50);
+			i++;
+		}
 	}
 
 	public void loadScore() {
