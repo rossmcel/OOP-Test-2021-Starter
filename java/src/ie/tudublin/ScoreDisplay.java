@@ -36,9 +36,31 @@ public class ScoreDisplay extends PApplet {
 		// iterate through each characters of score string
 		for (int i = 0; i < score.length(); i++) {
 			// score.charAt(i) = current character in string
-			Note note = new Note(score.charAt(i));
-			notes.add(note);
+			char nextChar = score.charAt(i + 1);
+			if (Character.isDigit(nextChar)) {
+				int duration = 1;
+				Note note = new Note(score.charAt(i), duration);
+				notes.add(note);
+				i++;
+			} else {
+				int duration = nextChar - '0';
+				Note note = new Note(score.charAt(i), duration);
+				notes.add(note);
+			}
 		}
 
+	}
+
+	public void printScores() {
+		for (Note n : notes) {
+			println(n.getNote());
+			int duration = n.getDuration();
+			println(duration);
+			if (duration == 1) {
+				System.out.println("Quaver");
+			} else {
+				System.out.println("Crotchet");
+			}
+		}
 	}
 }
