@@ -21,7 +21,16 @@ public class ScoreDisplay extends PApplet {
 	}
 
 	public void draw() {
+		// white background
 		background(255);
+		// draw 5 lines
+		int staveHeight = height - 175;
+		int staveWidth = width - 20;
+		for (int i = 0; i < 5; i++) {
+			// draw
+			strokeWeight(3);
+			line(20, staveHeight - i * 20, staveWidth, staveHeight - i * 20);
+		}
 
 	}
 
