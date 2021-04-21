@@ -84,7 +84,30 @@ public class ScoreDisplay extends PApplet {
 
 			int noteLocation = (staveHeight + 20) - 10 * noteVal;
 			strokeWeight(5);
-			line(40 * i, noteLocation, 40 * i, noteLocation - 50);
+			// main line
+			line(55 * i, noteLocation, 55 * i, noteLocation - 50);
+			// diagonal line
+			line(55 * i, noteLocation - 50, 55 * i + 15, noteLocation - 40);
+
+			strokeWeight(1);
+
+			// width of circle section of note
+			int circleWidth = 16;
+
+			// highlight note red if mouse on it, if not make it black
+			if (mouseX > 55 * i - circleWidth / 2 && mouseX < 55 * i + circleWidth) {
+				fill(255, 0, 0);
+			} else {
+				fill(0, 0, 0);
+			}
+
+			// main body of note (circular part)
+			circle(55 * i - circleWidth / 2, noteLocation, circleWidth);
+
+			// draw names of notes
+			textSize(24);
+			text(noteTemp, 55 * i - circleWidth + 2, staveHeight - 175);
+
 			i++;
 		}
 	}
