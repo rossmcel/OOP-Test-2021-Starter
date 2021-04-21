@@ -113,15 +113,21 @@ public class ScoreDisplay extends PApplet {
 	}
 
 	public void loadScore() {
-		// iterate through each characters of score string
+		// iterate through each character of score string
 		for (int i = 0; i < score.length(); i++) {
 			// score.charAt(i) = current character in string
-			char nextChar = score.charAt(i + 1);
-			if (Character.isDigit(nextChar)) {
-				int duration = nextChar - '0';
-				Note note = new Note(score.charAt(i), duration);
-				notes.add(note);
-				i++;
+			if (i != score.length() - 1) {
+				char nextChar = score.charAt(i + 1);
+				if (Character.isDigit(nextChar)) {
+					int duration = nextChar - '0';
+					Note note = new Note(score.charAt(i), duration);
+					notes.add(note);
+					i++;
+				} else {
+					int duration = 1;
+					Note note = new Note(score.charAt(i), duration);
+					notes.add(note);
+				}
 			} else {
 				int duration = 1;
 				Note note = new Note(score.charAt(i), duration);
