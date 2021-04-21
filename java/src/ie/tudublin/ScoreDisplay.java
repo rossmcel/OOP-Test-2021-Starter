@@ -133,16 +133,7 @@ public class ScoreDisplay extends PApplet {
 
 	public void printScores() {
 		for (Note n : notes) {
-			print(n.getNote());
-			print("\t");
-			int duration = n.getDuration();
-			print(duration);
-			print("\t");
-			if (duration == 1) {
-				System.out.println("Quaver");
-			} else {
-				System.out.println("Crotchet");
-			}
+			System.out.println(n);
 		}
 	}
 }

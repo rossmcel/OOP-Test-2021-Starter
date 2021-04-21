@@ -10,11 +10,16 @@ public class Note {
         duration = d;
     }
 
-    /*
-     * @Override public String toString(Note n) {
-     * 
-     * }
-     */
+    @Override
+    public String toString() {
+        String rhythm;
+        if (duration == 1) {
+            rhythm = "Quaver";
+        } else {
+            rhythm = "Crotchet";
+        }
+        return note + "\t" + duration + "\t" + rhythm;
+    }
 
     public char getNote() {
         return note;
