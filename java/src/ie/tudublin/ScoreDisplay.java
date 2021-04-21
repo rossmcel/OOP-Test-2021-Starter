@@ -22,6 +22,7 @@ public class ScoreDisplay extends PApplet {
 
 	public void setup() {
 		loadScore();
+		printScores();
 	}
 
 	public void draw() {
