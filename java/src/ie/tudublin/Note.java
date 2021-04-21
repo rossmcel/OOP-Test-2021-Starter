@@ -10,10 +10,11 @@ public class Note {
         duration = d;
     }
 
-    @Override
-    public String toString(Note tr) {
-
-    }
+    /*
+     * @Override public String toString(Note n) {
+     * 
+     * }
+     */
 
     public char getNote() {
         return note;

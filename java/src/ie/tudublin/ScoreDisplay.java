@@ -7,17 +7,12 @@ import processing.core.PApplet;
 public class ScoreDisplay extends PApplet {
 	ArrayList<Note> notes = new ArrayList<Note>();
 
-	String score = "DEFGABcd";
+	// String score = "DEFGABcd";
 	// String score = "D2E2F2G2A2B2c2d2";
-	// String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
 	public void settings() {
 		size(1000, 500);
-
-		// How to convert a character to a number
-		char c = '7'; // c holds the character 7 (55)
-		int i = c - '0'; // i holds the number 7 (55 - 48)
-		println(i);
 	}
 
 	public void setup() {
@@ -39,12 +34,12 @@ public class ScoreDisplay extends PApplet {
 			// score.charAt(i) = current character in string
 			char nextChar = score.charAt(i + 1);
 			if (Character.isDigit(nextChar)) {
-				int duration = 1;
+				int duration = nextChar - '0';
 				Note note = new Note(score.charAt(i), duration);
 				notes.add(note);
 				i++;
 			} else {
-				int duration = nextChar - '0';
+				int duration = 1;
 				Note note = new Note(score.charAt(i), duration);
 				notes.add(note);
 			}
@@ -54,9 +49,11 @@ public class ScoreDisplay extends PApplet {
 
 	public void printScores() {
 		for (Note n : notes) {
-			println(n.getNote());
+			print(n.getNote());
+			print("\t");
 			int duration = n.getDuration();
-			println(duration);
+			print(duration);
+			print("\t");
 			if (duration == 1) {
 				System.out.println("Quaver");
 			} else {
